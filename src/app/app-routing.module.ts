@@ -2,11 +2,18 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './components/auth/auth.guard';
 import { HomeComponent } from './components/home/home.component';
+import { ListComponent } from './components/list/list.component';
+import { NotificationsComponent } from './components/notifications/notifications.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:'auth',pathMatch:'full'},  
+  {path:'', redirectTo:'home',pathMatch:'full'},  
   {path:'auth',loadChildren:()=> import('./components/auth/auth.module').then(m => m.AuthModule)},
-  {path:'home',component:HomeComponent, canActivate: [AuthGuard]}
+  {path:'',canActivate: [AuthGuard], component:HomeComponent,
+  children: [
+    { path: 'home', component: ListComponent},
+    { path: 'notification', component: NotificationsComponent },
+   
+]}
  
 ];
 

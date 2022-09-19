@@ -17,6 +17,7 @@ export class SideNavComponent implements OnInit {
 
   public routeLinks = [
     { link: "home", name: "home", icon: "home" },
+    { link: "notification",name:"notification", icon:"notification_important"},
     { link: "auth", name: "Login", icon: "login" },
   ];
 }

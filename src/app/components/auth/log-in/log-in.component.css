@@ -5,9 +5,15 @@
 }
 
 .text {
-    font-size: 20px;
+    font-size: 30px;
+    font-weight: 500;
+    margin-top: 20px;
+    margin-bottom: 30px;
 }
 
+.form-row{
+    width: 20rem;
+}
 .btn1 {
     border: none;
     outline: none;

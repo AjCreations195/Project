@@ -1,23 +1,25 @@
-<div class="container">
-  <div class="row p-5">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">Sl.no</th>
-          <th scope="col">Name</th>
-          <th scope="col">Place</th>
-          <th scope="col">Designation</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor=" let user of users; let i = index;">
-          <th scope="row">{{i}}</th>
-          <td>{{user.name}}</td>
-          <td>{{user.place}}</td>
-          <td>{{user.Designation}}</td>
-        </tr>
-      </tbody>
+<mat-sidenav-container autosize class="mat-drawer-container">
+  <mat-sidenav #sidenav fixedInViewport="true" mode="side" opened="true">
+    <div class="mat-drawer-inner-container">
+      <app-side-nav (toggleMenu)="toggleMenu()" [isExpanded]="isExpanded"></app-side-nav>
+    </div>
 
-    </table>
-  </div>
-</div>
+  </mat-sidenav>
+  <mat-sidenav-content [style.margin-left.px]="!isExpanded ? 60 : 225">
+    <mat-toolbar class=" mat-elevation-z8 ">
+
+      <span>Project</span>
+      <span class="example-spacer"></span>
+      <button *ngIf="!isLoggedIn" mat-raised-button>
+        login
+      </button>
+      <button *ngIf="isLoggedIn" (click)="onLogout()" mat-raised-button>
+        Logout
+      </button>
+    </mat-toolbar>
+    <div class="content-container">
+      <router-outlet></router-outlet>
+      <app-footer></app-footer>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

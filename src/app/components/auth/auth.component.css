@@ -6,7 +6,6 @@
 
 .body {
     background: rgb(219, 226, 226);
-    margin-bottom: -48px;
 }
 
 .row {
@@ -17,4 +16,8 @@
 
 a {
     font-weight: bold;
+}
+.form{
+    margin: 5.3rem;
+    
 }

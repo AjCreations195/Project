@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../user.service';
+import { Subscription } from 'rxjs';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,13 +9,32 @@ import { UserService } from '../user.service';
 })
 export class HomeComponent implements OnInit {
 
-  users:{name:string,place:string,Designation:string}[]=[]
- 
-  constructor(private userService:UserService) { }
+  constructor(
+    private authService: AuthService) { }
 
   ngOnInit(): void {
-    this.users   =  this.userService.users
+    this.userSub = this.authService.user.subscribe(user => {
+      this.isLoggedIn = !!user;
+
+    })
   }
-  
+
+  public isExpanded = false;
+  private userSub!: Subscription;
+  isLoggedIn = false;
+
+
+  public toggleMenu() {
+    this.isExpanded = !this.isExpanded;
+  }
+
+  onLogout() {
+    this.authService.logout()
+  }
+
+  ngOnDestroy(): void {
+    this.userSub.unsubscribe();
+  }
+
 
 }
