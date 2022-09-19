@@ -1,0 +1,44 @@
+.row {
+    background: var(--primary-color);
+    border-radius: 30px;
+    box-shadow: 12px 12px 22px grey;
+}
+
+.text {
+    font-size: 20px;
+}
+
+.btn1 {
+    border: none;
+    outline: none;
+    background-color: black;
+    color: white;
+    height: 50px;
+    width: 100%;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
+.btn1:hover {
+    background: rgb(219, 226, 226);
+    color: black;
+    border: 1p;
+}
+
+a {
+    font-weight: bold;
+}
+
+a:hover {
+    font-size: large;
+}
+
+.help-block {
+    color: rgb(233, 18, 18);
+
+}
+
+.spinner-position {
+    text-align: center;
+    padding: 8rem;
+}
